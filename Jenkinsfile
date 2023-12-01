@@ -4,7 +4,7 @@ pipeline {
         timeout (time:30, unit: 'MINUTES')
     }
     triggers {
-        pollSCM (* * * * *)
+        pollSCM ('* * * * *')
     }
     tools {
         jdk 'jdk-8'
@@ -28,7 +28,7 @@ pipeline {
             steps {
                 archiveArtifacts artifacts: '**/gameoflife.jar'
                 junit testResults: '**/surefire-reports/TEST-*.xml'
-                
+
             }
         }
 
