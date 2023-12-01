@@ -1,6 +1,6 @@
 pipeline {
     agent { label 'practice'}
-    option {
+    options {
         timeout (time:30, unit: 'MINUTES')
     }
     triggers {
