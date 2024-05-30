@@ -26,21 +26,5 @@ pipeline {
             junit testResults: '**/surefire-reports/TEST-*.xml'   
         }
     }
-    post {
-        success {
-            mail from: 'jenkins@gmail.com',
-                 to: 'mailtrapgmail.com',
-                 body: 'you project is successfull',
-                 subject: 'game of life',
-
-        }
-        failure{
-            mail from: 'jenkins@gmail.com',
-                 to: 'mailtrapgmail.com',
-                 body: 'you project is failing',
-                 subject: 'game of life',
-        }
-    }
-
 
 }
