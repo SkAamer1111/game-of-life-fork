@@ -15,15 +15,21 @@ pipeline {
     }
     stages {
         stage ('clone'){
-            git url: 'https://github.com/wakaleo/game-of-life.git',
-                branch: 'practice'
+            steps{
+                git url: 'https://github.com/wakaleo/game-of-life.git',
+                    branch: 'practice'
+            }
         }
         stage ('build the code') {
-            sh "mvn ${params.GOAL}"
+            steps {
+                sh "mvn ${params.GOAL}"
+            }
         }
         stage ('reports'){
-            archiveArtifacts artifacts: '**/gameoflife.war'
-            junit testResults: '**/surefire-reports/TEST-*.xml'   
+            steps{
+                archiveArtifacts artifacts: '**/gameoflife.war'
+                junit testResults: '**/surefire-reports/TEST-*.xml'  
+            }
         }
     }
 
