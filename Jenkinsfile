@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage ('clone'){
             git url: 'https://github.com/wakaleo/game-of-life.git',
-                branch: 'master'
+                branch: 'practice'
         }
         stage ('build the code') {
             sh "mvn ${params.GOAL}"
